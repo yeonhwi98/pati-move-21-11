@@ -3,6 +3,7 @@ import { router } from "../router";
 import { Link } from "react-router-dom";
 import { Container } from "./Container";
 import { useState } from "react";
+import { mainWeight } from "../style/GlobalStyled";
 
 const SHeader = styled.header`
   width: 100%;
@@ -32,7 +33,7 @@ const MenuWrap = styled.ul`
 const Menu = styled.li`
   &:nth-child(1) {
     margin-right: 50px;
-    font-weight: 600;
+    font-weight: ${mainWeight.titleWeight};
   }
 `;
 
