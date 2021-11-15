@@ -1,38 +1,19 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
+
 import { movieApi } from "../../api";
-import { mainWeight } from "../../style/GlobalStyled";
 import { Loader } from "../Loader";
+import { MainBanner } from "./MainBanner";
+import { Container } from "../Container";
+import { Movies } from "./Movies";
+
 // console.log(movieApi.nowPlaying());
 // console.log(movieApi.upComing());
 
 const Wrap = styled.div``;
 
-const MainBanner = styled.section`
-  height: 80vh;
-  background-size: cover;
-  background-position: center;
-  padding: 220px 80px;
-`;
-
-const Title = styled.h3`
-  max-width: 550px;
-  width: 100%;
-  font-size: 70px;
-  font-weight: ${mainWeight.titleWeight};
-  line-height: 1.2em;
-  margin-bottom: 25px;
-  text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-`;
-const Desc = styled.p`
-  max-width: 600px;
-  width: 100%;
-  font-size: 18px;
-  opacity: 0.8;
-  line-height: 1.4em;
-  text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-`;
+const Section = styled.section``;
 
 export const Home = () => {
   // *과제
@@ -43,7 +24,7 @@ export const Home = () => {
   const [nowPlay, setNowplay] = useState();
   const [upComing, setUpComing] = useState();
   const [loading, setLoading] = useState(true);
-  const movieNum = 1;
+  const movieNum = 0;
 
   useEffect(() => {
     const movieData = async () => {
@@ -77,29 +58,24 @@ export const Home = () => {
   // *mainbanner컴포넌트 분해하기 과제
 
   return (
-    <>
+    <div>
       {loading ? (
-        <Loader></Loader>
+        <Loader />
       ) : (
-        <Wrap>
+        <>
           {nowPlay && (
-            <MainBanner
-              style={{
-                backgroundImage: `URL(
-            https://image.tmdb.org/t/p/original${
-              nowPlay[`${movieNum}`].backdrop_path
-            }
-          )`,
-              }}
-            >
-              <Title> {nowPlay[`${movieNum}`].title}</Title>
-              <Desc>
-                {nowPlay[`${movieNum}`].overview.slice(0, 70) + "..."}
-              </Desc>
-            </MainBanner>
+            <Wrap>
+              <MainBanner data={nowPlay} num={movieNum} />
+              <Section>
+                <Container>
+                  <Movies movieData={nowPlay} title="현재 상영 영화" />
+                  <Movies movieData={upComing} title="개봉 예정 영화" />
+                </Container>
+              </Section>
+            </Wrap>
           )}
-        </Wrap>
+        </>
       )}
-    </>
+    </div>
   );
 };
