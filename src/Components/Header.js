@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { router } from "../router";
 import { Link } from "react-router-dom";
-import { Container } from "./Container";
+// import { Container } from "./Container";
 import { useState } from "react";
-import { mainWeight } from "../style/GlobalStyled";
+import { mainWeight, moSize } from "../style/GlobalStyled";
 
 const SHeader = styled.header`
   width: 100%;
@@ -17,6 +17,10 @@ const SHeader = styled.header`
   align-items: center;
   background-color: ${(props) => props.bgColor};
   transition: 0.5s;
+  @media screen and (max-width: 500px) {
+    padding: ${moSize.padding};
+    z-index: 100;
+  }
 `;
 
 const Logo = styled.h3`
@@ -34,6 +38,11 @@ const Menu = styled.li`
   &:nth-child(1) {
     margin-right: 50px;
     font-weight: ${mainWeight.titleWeight};
+  }
+  @media screen and (max-width: 500px) {
+    &:nth-child(1) {
+      margin-right: 30px;
+    }
   }
 `;
 

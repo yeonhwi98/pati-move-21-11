@@ -6,29 +6,32 @@ import { Footer } from "./Components/Footer";
 import { Home } from "./Components/Home/Home";
 import { Search } from "./Components/Search/Search";
 import { Detail } from "./Components/Detail/Detail";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (
-    <Router>
-      <GlobalStyled />
-      <Header />
-      <Switch>
-        <Route path={router.home} exact>
-          <Home></Home>
-        </Route>
+    <HelmetProvider>
+      <Router>
+        <GlobalStyled />
+        <Header />
+        <Switch>
+          <Route path={router.home} exact>
+            <Home></Home>
+          </Route>
 
-        <Route path={router.detail}>
-          <Detail></Detail>
-        </Route>
+          <Route path={router.detail}>
+            <Detail></Detail>
+          </Route>
 
-        <Route path={router.search}>
-          <Search></Search>
-        </Route>
+          <Route path={router.search}>
+            <Search></Search>
+          </Route>
 
-        <Route>Page Not Found</Route>
-      </Switch>
-      <Footer />
-    </Router>
+          <Route>Page Not Found</Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </HelmetProvider>
   );
 }
 

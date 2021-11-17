@@ -11,6 +11,7 @@ const api = axios.create({
 export const movieApi = {
   nowPlaying: () => api.get("movie/now_playing"),
   upComing: () => api.get("movie/upcoming"),
+  getReview: () => api.get("movie/reviews"),
 };
 
 // 현재 상영영화

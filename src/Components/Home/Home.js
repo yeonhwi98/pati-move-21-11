@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-
+import { Helmet } from "react-helmet-async";
 import { movieApi } from "../../api";
 import { Loader } from "../Loader";
 import { MainBanner } from "./MainBanner";
 import { Container } from "../Container";
 import { Movies } from "./Movies";
+// import { movieData } from "./movieApi"
+// import { movieApi } from "./Movies";
 
 // console.log(movieApi.nowPlaying());
 // console.log(movieApi.upComing());
@@ -23,6 +25,8 @@ export const Home = () => {
 
   const [nowPlay, setNowplay] = useState();
   const [upComing, setUpComing] = useState();
+  const [getReview, setgetReview] = useState();
+
   const [loading, setLoading] = useState(true);
   const movieNum = 0;
 
@@ -42,6 +46,11 @@ export const Home = () => {
         } = await movieApi.upComing();
         setUpComing(upComing);
 
+        const {
+          data: { results: getReview },
+        } = await movieApi.upComing();
+        setgetReview(getReview);
+
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -59,6 +68,10 @@ export const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title> 홈 | PN movie</title>
+      </Helmet>
+
       {loading ? (
         <Loader />
       ) : (
@@ -70,6 +83,8 @@ export const Home = () => {
                 <Container>
                   <Movies movieData={nowPlay} title="현재 상영 영화" />
                   <Movies movieData={upComing} title="개봉 예정 영화" />
+                  <Movies movieData={getReview} title="리뷰 많은 영화" />
+                  <Movies movieData={upComing} title="최근 상영 영화" />
                 </Container>
               </Section>
             </Wrap>
