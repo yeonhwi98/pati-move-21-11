@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import { mainWeight, moSize } from "../../style/GlobalStyled";
 import { Link } from "react-router-dom";
-import { router } from "../../router";
 import "../../style/swiper.css";
 
 const Title = styled.h3`

@@ -12,6 +12,7 @@ export const movieApi = {
   nowPlaying: () => api.get("movie/now_playing"),
   upComing: () => api.get("movie/upcoming"),
   getReview: () => api.get("movie/reviews"),
+  detail: (id) => api.get(`movie/${id}`),
 };
 
 // 현재 상영영화

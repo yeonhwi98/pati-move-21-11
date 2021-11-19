@@ -7,6 +7,7 @@ import { Home } from "./Components/Home/Home";
 import { Search } from "./Components/Search/Search";
 import { Detail } from "./Components/Detail/Detail";
 import { HelmetProvider } from "react-helmet-async";
+import { NotFound } from "./NotFound";
 
 function App() {
   return (
@@ -27,7 +28,9 @@ function App() {
             <Search></Search>
           </Route>
 
-          <Route>Page Not Found</Route>
+          <Route>
+            <NotFound></NotFound>
+          </Route>
         </Switch>
         <Footer />
       </Router>
