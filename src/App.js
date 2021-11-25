@@ -8,12 +8,14 @@ import { Search } from "./Components/Search/Search";
 import { Detail } from "./Components/Detail/Detail";
 import { HelmetProvider } from "react-helmet-async";
 import { NotFound } from "./NotFound";
+import { ScrollTop } from "./Components/ScrollTop";
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
         <GlobalStyled />
+        <ScrollTop />
         <Header />
         <Switch>
           <Route path={router.home} exact>

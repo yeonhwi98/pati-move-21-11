@@ -10,6 +10,9 @@ const SFooter = styled.div`
   font-size: 14px;
   color: gray;
   margin-top: 200px;
+  @media screen and (max-width: 500px) {
+    margin-top: 50px;
+  }
 `;
 
 export const Footer = () => {
