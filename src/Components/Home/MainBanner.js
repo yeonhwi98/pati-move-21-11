@@ -1,4 +1,4 @@
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled from "styled-components";
@@ -13,6 +13,7 @@ const SMainBanner = styled.section`
   @media screen and (max-width: 500px) {
     padding: 220px 20px;
   }
+  position: relative;
 `;
 
 const Title = styled.h3`
@@ -26,7 +27,10 @@ const Title = styled.h3`
   @media screen and (max-width: 500px) {
     font-size: 45px;
     margin-bottom: 15px;
+    margin-top: 100px;
   }
+  position: relative;
+  z-index: 10;
 `;
 const Desc = styled.p`
   max-width: 600px;
@@ -38,6 +42,8 @@ const Desc = styled.p`
   @media screen and (max-width: 500px) {
     font-size: ${moSize.descSize};
   }
+  position: relative;
+  z-index: 10;
 `;
 const Button = styled.button`
   all: unset;
@@ -58,9 +64,10 @@ const Button = styled.button`
     }
   }
   @media screen and (max-width: 500px) {
-    padding: 18px 30px;
-    font-size: ${moSize.movieTitle};
+    display: none;
   }
+  position: relative;
+  z-index: 10;
 `;
 
 const MoreBanner = styled.section`
@@ -73,6 +80,9 @@ const MoreBanner = styled.section`
   overflow: hidden;
   transition: 0.5s;
   /* display: none; */
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 const ConWrap = styled.div`
   width: 30%;
@@ -100,6 +110,16 @@ const CoverImg = styled.div`
     margin: 15px 15px 0 0;
     cursor: pointer;
   }
+`;
+
+const BlackBg = styled.div`
+  width: 100%;
+  height: 60vh;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  /* background-color: black; */
+  background: linear-gradient(0deg, black, transparent);
 `;
 
 export const MainBanner = ({ data, num }) => {
@@ -136,6 +156,7 @@ export const MainBanner = ({ data, num }) => {
       >
         <Title> {data[`${num}`].title}</Title>
         <Desc>{data[`${num}`].overview.slice(0, 70) + "..."}</Desc>
+        <BlackBg></BlackBg>
         <Button onClick={onClickMore}>
           더 보기 <span>&rarr;</span>
         </Button>
@@ -153,7 +174,7 @@ export const MainBanner = ({ data, num }) => {
             })`,
           }}
         >
-          <div onClick={onClickClose}>
+          <div>
             <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
           </div>
         </CoverImg>

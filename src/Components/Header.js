@@ -21,6 +21,7 @@ const SHeader = styled.header`
     padding: ${moSize.padding};
     z-index: 100;
   }
+  z-index: 100;
 `;
 
 const Logo = styled.h3`

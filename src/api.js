@@ -14,6 +14,12 @@ export const movieApi = {
   getReview: () => api.get("movie/reviews"),
   detail: (id) => api.get(`movie/${id}`),
   video: (movie_id) => api.get(`/movie/${movie_id}/videos`),
+  search: (term) =>
+    api.get(`search/movie`, {
+      params: {
+        query: encodeURIComponent(term),
+      },
+    }),
 };
 
 // 현재 상영영화
