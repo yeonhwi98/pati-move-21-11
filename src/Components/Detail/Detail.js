@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+
 import styled from "styled-components";
 import { movieApi } from "../../api";
 import { NotFound } from "../../NotFound";
