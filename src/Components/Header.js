@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { router } from "../router";
 import { Link } from "react-router-dom";
-// import { Container } from "./Container";
 import { useState } from "react";
 import { mainWeight, moSize } from "../style/GlobalStyled";
 
@@ -52,7 +51,7 @@ export const Header = () => {
 
   const handleScroll = () => {
     const sct = window.pageYOffset;
-    console.log(sct);
+    // console.log(sct);
     if (sct >= 200) {
       setBg("rgba(0,0,0,0.7)");
     } else {

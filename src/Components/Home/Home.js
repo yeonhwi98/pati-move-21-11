@@ -59,7 +59,7 @@ export const Home = () => {
     movieData();
   }, []);
 
-  console.log("현재상영영화", nowPlay);
+  // console.log("현재상영영화", nowPlay);
   // console.log("개봉예정영화", upComing);
 
   // console.log(nowPlay && nowPlay[0]);

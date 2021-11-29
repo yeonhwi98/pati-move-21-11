@@ -82,7 +82,7 @@ export const Search = () => {
     }
   };
 
-  console.log(search);
+  // console.log(search);
 
   return (
     <div>
