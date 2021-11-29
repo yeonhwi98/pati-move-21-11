@@ -120,14 +120,15 @@ export const Detail = () => {
   const [videoData, setVideoData] = useState();
   const [loading, setLoading] = useState(true);
 
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     const MovieDetail = async () => {
       try {
         // console.log(await movieApi.detail(566525));
-        const { data } = await movieApi.detail(id);
-        setMovieData(data);
+        const { data: movieData } = await movieApi.detail(id);
+        setMovieData(movieData);
+        // console.log(data);
 
         // console.log(await movieApi.video(id));
         const {
